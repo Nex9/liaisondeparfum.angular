@@ -1,0 +1,23 @@
+main.shop
+
+  .item(ng-repeat="item in page.data.assets track by item._id" ng-class="item.type")
+    .media
+      imago-video(data="item" ng-if="item.fields.formats")
+      imago-image(data="item" ng-if="!item.fields.formats")
+      a(ng-href="{{ ::item.path }}")
+
+    .caption
+      .options(
+        find-options
+        variants="item.variants"
+        selected-option="page.selectedColor(item, option)"
+        options="['color']"
+        )
+      h2
+        a.title(ng-href="{{::item.path}}") {{:: item.fields.title.value}}
+
+      .price(
+        find-price
+        attributes="['color']"
+        variants="item.variants"
+        product="item")

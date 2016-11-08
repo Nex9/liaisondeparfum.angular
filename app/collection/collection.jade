@@ -1,0 +1,13 @@
+.item(ng-repeat="item in page.data.assets" fullsize-image)
+  div(ng-switch="item.type")
+    div(imago-video="item" ng-switch-when="video")
+    div(imago-image="item" ng-switch-when="image" sizemode="crop" lazy="false")
+    .caption
+      span.name {{item.name}}
+      .icons(
+        imago-share="['facebook', 'twitter', 'google', 'tumblr', 'pinterest']"
+        ng-class="{'show' : page.shareIcons}"
+        asset="product"
+        stop-propagation
+        )
+

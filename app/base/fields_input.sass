@@ -1,0 +1,112 @@
+.imago-field
+  input
+    &:not([type]),
+    &[type="text"],
+    &[type="password"],
+    &[type="email"],
+    &[type="url"],
+    &[type="date"],
+    &[type="month"],
+    &[type="time"],
+    &[type="datetime"],
+    &[type="datetime-local"],
+    &[type="week"],
+    &[type="number"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="color"],
+    &[type="file"]
+      font-size: inherit
+      width: 100%
+      padding: $imago-field-padding
+      display: inline-block
+      @extend .field-border-style
+      @extend .field-font-style
+      background-color: $imago-field-background-color
+      box-shadow: $imago-field-box-shadow
+      border-radius: $imago-field-border-radius
+      box-sizing: border-box
+      margin: 0
+
+  input
+    &[type="text"],
+    &[type="password"],
+    &[type="email"],
+    &[type="url"],
+    &[type="time"],
+    &[type="number"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="file"]
+      appearance: none
+
+
+  input
+    &[type="text"]:focus,
+    &[type="password"]:focus,
+    &[type="email"]:focus,
+    &[type="url"]:focus,
+    &[type="date"]:focus,
+    &[type="month"]:focus,
+    &[type="time"]:focus,
+    &[type="datetime"]:focus,
+    &[type="datetime-local"]:focus,
+    &[type="week"]:focus,
+    &[type="number"]:focus,
+    &[type="search"]:focus,
+    &[type="tel"]:focus,
+    &[type="color"]:focus
+      background-color: white
+
+    &[type="file"]:focus,
+    &[type="radio"]:focus,
+    &[type="checkbox"]:focus
+      outline: 0
+
+  input
+    &:not([type])[disabled],
+    &[type="text"][disabled],
+    &[type="password"][disabled],
+    &[type="email"][disabled],
+    &[type="url"][disabled],
+    &[type="date"][disabled],
+    &[type="month"][disabled],
+    &[type="time"][disabled],
+    &[type="datetime"][disabled],
+    &[type="datetime-local"][disabled],
+    &[type="week"][disabled],
+    &[type="number"][disabled],
+    &[type="search"][disabled],
+    &[type="tel"][disabled],
+    &[type="color"][disabled]
+      cursor: not-allowed
+      background-color: $imago-field-background-color
+      color: #cad2d3
+      opacity: 0.6
+
+  input
+    &[type="file"]
+      width: 0.1px
+      height: 0.1px
+      opacity: 0
+      overflow: hidden
+      position: absolute
+      z-index: -1
+      + label
+        padding: $imago-field-padding
+        display: inline-block
+        cursor: pointer
+        @extend .field-border-style
+        @extend .field-font-style
+        *
+          pointer-events: none
+
+
+  input
+    &[readonly]
+      background: $imago-field-background-color-readonly
+      color: $imago-field-color-readonly
+
+  // input
+  //   &[type="file"]
+  //     border: 1px solid red

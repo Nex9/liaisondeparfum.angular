@@ -1,0 +1,15 @@
+{
+  "name": "angular-nex9-theme",
+  "version": "1.0.0",
+  "description": "Angular theme for NEX9 LLC",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nex9 LLC",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "imago-gulp-angular": "*"
+  }
+}

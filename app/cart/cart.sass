@@ -1,0 +1,171 @@
+imago-cart
+  display: block
+  margin-top: 4px
+  position: fixed
+  z-index: 10
+  top: 10px
+  right: 10px
+
+  button
+    background: none
+    border: none
+
+  .bag
+    text-align: right
+    user-select: none
+    cursor: pointer
+    font-size: .85em
+    text-transform: lowercase
+
+  .imago-cart
+    box-shadow: 0 0 15px rgba(black, 0.1)
+    padding-top: 3em
+    margin-top: 2em
+    background: white
+    position: relative
+    @include mq($max-height: $small)
+      margin-top: 1em
+      // margin-right: -1em
+    button.cart-close
+      border: none
+      padding: 0
+      margin: 0
+      display: inline-block
+      appearance: none
+      width:  30px
+      height: 30px
+      position: absolute
+      z-index: 10
+      top:   10px
+      right: 10px
+      transition: transform 0.15s ease-in-out
+      &:hover
+        transform: rotate(90deg)
+      span
+        display: block
+        width: 100%
+        height: 1px
+        background: black
+        position: absolute
+        transform: rotate(45deg)
+        &:last-child
+          transform: rotate(135deg)
+
+  .imago-cart-content,
+  .imago-cart-checkout
+    user-select: none
+    text-align: right
+
+    span.currency
+      margin-right: .125em
+
+
+
+  .imago-cart-content
+    overflow-y: auto
+    background: white
+    position: relative
+    overflow-y: auto
+    max-height: calc(100vh - 280px)
+    margin-bottom: 2em
+
+    .imago-cart-item
+      text-align: left
+      position: relative
+      overflow: hidden
+      width: 100vw
+      max-width: 420px
+      margin-bottom: .5em
+      padding: 0 .5em
+
+      .img
+        float: left
+        width:  100px
+        height: 100px
+        margin-left: 30px
+        max-height: 150px
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: center center
+        margin-right: 0em
+
+      .line
+        // margin-bottom: .125em
+        font-size: .85em
+
+      .qty, .title, .color, .size
+        display: inline-block
+      .qty
+        float: right
+        .imago-field-number-content
+          width: 75px
+          margin: 0
+          margin-left: .5em
+          input
+            padding: 0
+            padding-top: 4px
+            margin: 0
+            border-bottom: none
+      .title
+        display: block
+        margin-top: .25em
+
+      .price
+        display: inline-block
+
+      button.remove
+        border: none
+        padding: 0
+        margin: 0
+        display: block
+        appearance: none
+        width:  20px
+        height: 20px
+        transition: transform 0.15s ease-in-out
+        vertical-align: top
+        position: absolute
+        top: calc(50% - 10px)
+        left: 1em
+        // opacity: 0
+        &:hover
+          transform: rotate(90deg)
+        span
+          display: block
+          width: 100%
+          height: 1px
+          background: black
+          transform: rotate(45deg)
+          position: absolute
+          &:last-child
+            transform: rotate(135deg)
+
+      &:hover button.remove
+        opacity: 1
+
+  .imago-cart-summery
+      position: relative
+      padding-bottom: 1em
+
+      .noitems
+        padding: 0 1em
+        min-width: 160px
+
+      button
+        color: white
+        background: black
+        text-align: center
+        display: block
+        letter-spacing: 2px
+        padding: .5em
+        width: calc(100% - 2em)
+        margin: 0 1em
+
+        &:hover
+          color: black
+          background: white
+
+        .checkout
+          text-transform: uppercase
+          margin-right: 1.5em
+
+

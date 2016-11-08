@@ -1,0 +1,64 @@
+header
+  padding-top: 1em
+  padding-bottom: 0.313em
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 10
+  transition: all 0.25s ease
+  background: white
+
+  a.logo
+    background: url(//#{$tenant}.imago.io/logo=s680) no-repeat
+    background-size: 100% auto
+    width: 340px
+    padding-top: 33px
+    height: 0
+    overflow: hidden
+    display: inline-block
+    margin-top: 1em
+
+  a.icon
+    background: url(//#{$tenant}.imago.io/icon=s120) no-repeat
+    background-size: 100% auto
+    width: 20px
+    padding-top: 20px
+    height: 0
+    position: absolute
+    left: 10px
+    bottom: 10px
+    transition: transform .25s ease
+    transform: translateX(-50px)
+
+
+
+  nav.shop
+    position: fixed
+    top: 1em
+    right: 1em
+
+  nav.main
+    margin-top: .5em
+    a
+      font-size: 13px
+      letter-spacing: 3px
+      text-decoration: none
+      color: #a3a3a3
+      margin: 0 5px
+      text-transform: uppercase
+      &:hover
+        color: black
+      &.active
+        color: black
+
+
+
+  &.headroom--not-top
+    transform: translateY(-70px)
+    a.icon
+      transform: translateX(0)
+      transition-delay: .5s
+
+
+  // &.headroom--unpinned

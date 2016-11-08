@@ -1,0 +1,51 @@
+a,
+button,
+.btn
+  touch-action: manipulation
+  cursor: pointer
+
+
+
+.btn,
+a.btn
+  border: 0
+  border-radius: $btn-roundness
+  background-color: $btn-default-bg
+  color: $btn-default-text-color
+  text-transform: uppercase
+  cursor: pointer
+  line-height: 1
+  font-family: inherit
+  font-size: inherit
+  text-decoration: none
+  display: inline-block
+  padding: .75em 1.5em
+  user-select: none
+  &:enabled
+    &:hover
+      color: black
+    &:active
+      background-color: lighten($text-color, 10%)
+    &.active
+      color: $btn-default-text-color
+  &:focus
+    outline: none
+
+
+
+button:disabled
+  opacity: 0.3
+
+.btn-primary
+  @extend .btn
+  background-color: $btn-primary-bg
+  color: $btn-primary-text-color
+
+.btn-small
+  @extend .btn
+  font-size: $btn-small-font-size
+
+.btn-large
+  @extend .btn
+  font-size: $btn-large-font-size
+  font-weight: bold

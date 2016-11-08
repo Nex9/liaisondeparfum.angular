@@ -1,0 +1,10 @@
+main.blog
+  section
+    article(ng-repeat="asset in page.assets track by asset._id")
+      imago-video(data="::asset" ng-if="asset.fields.formats")
+      imago-image(data="::asset" ng-if="!asset.fields.formats")
+      h2(ng-show="::asset.fields.title.value") {{::asset.fields.title.value}}
+      a.link(ng-href="{{::asset.path}}")
+
+  imago-pager(posts="page.assets")
+

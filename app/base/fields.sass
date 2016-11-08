@@ -1,0 +1,123 @@
+
+$imago-field-padding: 1.5em 3px 0.5em 3px !default
+$imago-field-border-radius: 0 !default
+$imago-field-label-color: darken(white, 50%)!default
+$imago-field-border-color: darken(white, 30%)!default
+$imago-field-border-color-invalid: rgba(red, 1) !default
+$imago-field-border-width-invalid: 2px!default
+$imago-field-border-color-focus: rgba(74,185,255, 0.5) !default
+$imago-field-background-color: darken(white, 0%) !default
+$imago-field-box-shadow: none !default
+$imago-field-letter-spacing: 0.05em !default
+
+
+$imago-field-background-color-readonly: transparent !default
+$imago-field-color-readonly: #777 !default
+
+
+@import ./fields_input
+@import ./fields_select
+@import ./fields_checkbox
+@import ./fields_radio
+@import ./fields_textarea
+@import ./fields_number
+@import ./fields_currency
+@import ./fields_creditcard
+
+
+
+::placeholder
+  opacity: 0
+
+.field-border-style
+  border-top:    none
+  border-right:  none
+  border-bottom: 1px solid darken(white, 15%)
+  border-left:   none
+
+
+.fieldBgStyle
+  background: white
+
+.field-font-style
+  font-size: inherit
+  font-family: inherit
+
+.imago-field
+  position: relative
+  padding: 0
+  width: 100%
+  text-align: left
+  line-height: normal
+  margin: 1em 0
+
+
+  fieldset
+    margin: 0
+    padding: 0.35em 0 0.75em
+    border: 0
+  legend
+    display: block
+    width: 100%
+    padding: 0.3em 0
+    margin-bottom: 0.3em
+    color: #333
+    border-bottom: 1px solid #e5e5e5
+    color: $imago-field-label-color
+
+  input,textarea
+    font-weight: inherit
+    font-family: inherit
+
+
+
+// label
+.imago-field
+  input,textarea
+    + label
+      transition: all .15s ease
+    &.ng-invalid.ng-touched
+      // border-bottom-color: $imago-field-border-color-invalid
+
+.imago-field
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select
+    + label
+      padding: 0 0.3em
+      position: absolute
+      top:  20px
+      left: 0px
+      z-index: 2
+
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select
+    &.ng-not-empty + label,
+    &:focus + label
+      font-size: .8em
+      top: 0
+      color: gray
+
+
+// for submit required validation
+form.ng-submitted
+  input[type="text"],
+  input[type="email"],
+  textarea
+    &.ng-invalid
+      border-bottom-color: $imago-field-border-color-invalid
+
+
+// typing validation
+
+input[type="text"],
+input[type="email"],
+textarea,
+select
+  &.ng-touched.ng-invalid
+    border-bottom-color: $imago-field-border-color-invalid
+
+

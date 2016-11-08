@@ -1,0 +1,115 @@
+main.home
+  // width: $large
+  // margin-left: auto
+  // margin-right: auto
+
+  .block
+    margin: 0 auto 4em auto
+    min-height: 6em
+    position: relative
+    vertical-align: top
+    // border: 1px solid red
+
+    &.width-full
+      // border: 1px solid red
+    &.width-half
+      display: inline-block
+      margin-left: 20px
+      margin-right: 20px
+    &.width-third
+      display: inline-block
+      margin-left: 20px
+      margin-right: 20px
+
+    &.height-fullwindow
+      height: 100vh
+      .imago-slider-content,
+      .imago-image-content,
+      .imago-video-content
+        +pos()
+
+
+    &:first-child.height-fullwindow
+      height: calc(100vh - #{$header-height})
+
+
+  // all one row
+  @include max-screen($xsmall)
+    .block
+      &.width-fullwindow,
+      &.width-full
+        margin-left: 20px
+        margin-right: 20px
+      &.width-half
+        display: block
+      &.width-third
+        display: block
+
+  // breakpoints
+  @include min-screen($xsmall)
+    .block
+      &.width-full
+        width: $xsmall
+      &.width-half
+        width: $xsmall
+      &.width-third
+        width: ($xsmall - 40px) / 2
+
+  @include min-screen($small)
+    .block
+      &.width-full
+        width: $xsmall
+      &.width-half
+        width: ($xsmall - 40px) / 2
+      &.width-third
+        max-width: $xsmall / 3
+        width: ($xsmall - 80px) / 3
+
+  @include min-screen($medium)
+    .block
+
+      &.width-full
+        width: $small
+      &.width-half
+        width: ($small - 40px) / 2
+      &.width-third
+        max-width: $small / 3
+        width: ($small - 80px) / 3
+
+  @include min-screen($large)
+    .block
+
+      &.width-full
+        width: $medium
+      &.width-half
+        width: ($medium - 40px) / 2
+      &.width-third
+        max-width: $medium / 3
+        width: ($medium - 80px) / 3
+
+  @include min-screen($xlarge)
+    .block
+      &.width-full
+        width: $large
+      &.width-half
+        width: ($large - 40px) / 2
+      &.width-third
+        max-width: $large / 3
+        width: ($large - 80px) / 3
+
+
+
+
+body.desktop
+  main.home
+    top: $header-height
+    bottom: $footer-height
+
+
+
+
+body.mobile
+  main.home
+    height: calc(100vh + #{$mobile-footer-height})
+
+

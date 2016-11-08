@@ -1,0 +1,27 @@
+main.home
+
+
+  .block(ng-repeat="block in page.data.assets track by block._id"
+    ng-class="['width-' + block.fields.width.value, 'height-' + block.fields.height.value]"
+    )
+
+    div.collection(ng-if="block.assets.length")
+      imago-slider(
+        data="block.assets"
+        animation="fade"
+        loop="true"
+        )
+        .slide(ng-repeat="asset in imagoslider.assets track by asset._id"
+          ng-if="currentIndex === $index")
+          imago-video(data="asset" ng-if="asset.fields.formats")
+          imago-image(data="asset" ng-if="!asset.fields.formats")
+        .slider-index
+          a(ng-repeat="asset in imagoslider.assets track by asset._id"
+            ng-class="{ 'active': currentIndex === $index }"
+            ng-click="imagoslider.setCurrent($index)"
+            ng-if="currentIndex === $index") {{$index + 1}} / {{imagoslider.assets.length}}
+
+
+    div.asset(ng-if="!block.assets.length")
+      imago-video(data="block" ng-if="block.fields.formats")
+      imago-image(data="block" ng-if="!block.fields.formats")

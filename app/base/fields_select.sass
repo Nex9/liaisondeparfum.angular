@@ -1,0 +1,41 @@
+.imago-field
+  select
+    width: 100%
+    appearance: none
+    margin: 0
+    padding: $imago-field-padding
+    display: inline-block
+    @extend .field-border-style
+    @extend .field-font-style
+    background-color: $imago-field-background-color
+    box-shadow: $imago-field-box-shadow
+    border-radius: $imago-field-border-radius
+    &[multiple]
+      height: auto
+
+  select:focus
+    outline: 0
+    background-color: white
+
+  select[disabled]
+    cursor: not-allowed
+    background-color: $imago-field-background-color
+    color: #cad2d3
+
+  select[readonly]
+    background: #eee
+    color: #777
+
+
+
+
+  // custom
+  select
+    box-sizing: border-box
+    background-image: url(i/form-select-background.png)
+    background-size: auto 50%
+    background-repeat: no-repeat
+    background-position: right center
+
+
+

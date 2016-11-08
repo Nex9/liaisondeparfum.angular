@@ -1,0 +1,31 @@
+a(ui-sref="home").logo {{tenantSettings.settings.name}}
+a(ui-sref="home").icon
+
+
+//- imago-fetch(query="/")
+//-   nav
+//-     a(
+//-       ui-sref="{{ item.name.toLowerCase() }}"
+//-       ui-sref-opts="{reload: true}"
+//-       ng-class="{active: item.path === urlPath}"w
+//-       ng-repeat="item in ::imagofetch.result.assets"
+//-       ) {{::item.fields.title.value || item.name}}
+
+nav.main
+
+  a(ui-sref="about"
+    ui-sref-active="active") About
+  a(ui-sref="shop"
+    ui-sref-active="active") Fragrance
+  a(ui-sref="inspiration"
+    ui-sref-opts="{reload: true}"
+    ui-sref-active="active") Inspiration
+  a(ui-sref="press"
+    ui-sref-opts="{reload: true}"
+    ui-sref-active="active") Press
+  a(ui-sref="contact"
+    ui-sref-active="active") Contact
+
+
+
+

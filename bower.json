@@ -1,0 +1,39 @@
+{
+  "name": "angular-nex9-theme",
+  "version": "1.0.0",
+  "authors": [
+    "Nex9 LLC <mail@nex9.com>"
+  ],
+  "license": "MIT",
+  "homepage": "http://nex9.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "*",
+    "angular": "~1.5",
+    "angular-moment": "~1",
+    "angular-animate": "~1.5",
+    "angular-elastic": "~2",
+    "angular-scroll": "*",
+    "angular-touch": "~1.5",
+    "angular-ui-router": "*",
+    "angulartics": "*",
+    "angulartics-google-analytics": "*",
+    "imago": "Imago-io/imago.angular#master",
+    "angulartics-facebook-pixel": "^0.2.0",
+    "normalize.css": "~4",
+    "sass-mediaqueries": "~1",
+    "headroom.js": "https://npmcdn.com/headroom.js/bower.zip",
+    "fastclick": "~1"
+  },
+  "resolutions": {
+    "angular": "~1.5",
+    "angulartics": "~1"
+  }
+}

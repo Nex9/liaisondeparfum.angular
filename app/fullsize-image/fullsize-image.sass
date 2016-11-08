@@ -1,0 +1,41 @@
+.fullsize-image
+  cursor: url("i/plus.png") 20 20, crosshair
+  background: url("i/plus.png")
+.fullsize-image.fullsize
+  cursor: url("i/x.png") 20 20, crosshair
+
+  > div
+    // width: auto
+    margin: 0 !important
+    padding: 0 !important
+    position: fixed !important
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 10001
+    background-color: white
+    overflow-y: scroll
+    .imagoimage,
+    .imagovideo
+      height: 160vw
+
+    .imagoimage
+      .imagox23
+        width: 100%
+        opacity: 1 !important
+        // height: 100%
+
+body.mobile
+  .fullsize-image.fullsize
+    .imagoimage,
+    .imagovideo
+      position: absolute
+      top: 0px
+      width: 200vw
+      left: -25vw
+      right: -25vw
+      height: 200vh
+      min-height: 300vw
+      &:after
+        display: none
