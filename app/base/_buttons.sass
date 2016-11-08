@@ -25,7 +25,7 @@ a.btn
     &:hover
       color: black
     &:active
-      background-color: lighten($text-color, 10%)
+      color: lighten($text-color, 50%)
     &.active
       color: $btn-default-text-color
   &:focus
@@ -36,16 +36,16 @@ a.btn
 button:disabled
   opacity: 0.3
 
-.btn-primary
-  @extend .btn
-  background-color: $btn-primary-bg
-  color: $btn-primary-text-color
+// .btn-primary
+//   @extend .btn
+//   background-color: $btn-primary-bg
+//   color: $btn-primary-text-color
 
-.btn-small
-  @extend .btn
-  font-size: $btn-small-font-size
+// .btn-small
+//   @extend .btn
+//   font-size: $btn-small-font-size
 
-.btn-large
-  @extend .btn
-  font-size: $btn-large-font-size
-  font-weight: bold
+// .btn-large
+//   @extend .btn
+//   font-size: $btn-large-font-size
+//   font-weight: bold

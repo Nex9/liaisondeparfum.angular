@@ -1,11 +1,11 @@
 main.product
 
-  //- .images
-  //-   .item(ng-repeat="product in page.data.assets track by product._id"
-  //-     id="{{product._id}}")
-  //-     imago-video(data="product" ng-if="asset.fields.formats")
-  //-     imago-image(data="product" ng-if="!asset.fields.formats")
-  //-     .caption(ng-bind="product.fields.title.value")
+  .images
+    .item(ng-repeat="product in page.data.assets track by product._id"
+      id="{{product._id}}")
+      imago-video(data="product" ng-if="asset.fields.formats")
+      imago-image(data="product" ng-if="!asset.fields.formats")
+      .caption(ng-bind="product.fields.title.value")
 
 
 
@@ -15,27 +15,27 @@ main.product
 
     p {{::page.data.fields.description.value}}
 
-    .options.colors
-      label Color {{::color.name}}
-      button(
-        ng-repeat="color in page.productItem.options.color track by color.normname"
-        ng-class="[{selected: color.name === page.productItem.color}, {notavailable: !page.productItem.findVariant('color', color.name)},color.normname]"
-        ng-click="page.productItem.setOption('color', color.name); page.showColor = false"
-        title="{{::color.name}}"
-        ng-style="{backgroundColor: color.color}"
-        )
+    //- .options.colors
+    //-   label Color {{::color.name}}
+    //-   button(
+    //-     ng-repeat="color in page.productItem.options.color track by color.normname"
+    //-     ng-class="[{selected: color.name === page.productItem.color}, {notavailable: !page.productItem.findVariant('color', color.name)},color.normname]"
+    //-     ng-click="page.productItem.setOption('color', color.name); page.showColor = false"
+    //-     title="{{::color.name}}"
+    //-     ng-style="{backgroundColor: color.color}"
+    //-     )
 
 
-    .options.sizes
-      label Size
+    //- .options.sizes
+    //-   label Size
 
-      button(
-        ng-repeat="size in page.productItem.options.size track by size.normname"
-        ng-class="[{selected: size.name === page.productItem.size}, {notavailable: !page.productItem.findVariant('size', size.name)}, size.normname]"
-        ng-click="page.productItem.setOption('size', size.name)"
-        title="{{::size.name}}"
-        )
-        span {{::size.name}}
+    //-   button(
+    //-     ng-repeat="size in page.productItem.options.size track by size.normname"
+    //-     ng-class="[{selected: size.name === page.productItem.size}, {notavailable: !page.productItem.findVariant('size', size.name)}, size.normname]"
+    //-     ng-click="page.productItem.setOption('size', size.name)"
+    //-     title="{{::size.name}}"
+    //-     )
+    //-     span {{::size.name}}
 
 
     .error(ng-show="page.error && !page.color") Please choose a color
@@ -59,7 +59,7 @@ main.product
     //- pre {{page.productItem.selected|json}}
 
 
-    button.addToCart.border(
+    button.btn(
       type="button"
       ng-click="page.imagoCart.add(page.productItem.selected, ['color', 'size'], ['title', 'description'])"
       ng-disabled="(page.productItem.selected.stock <= 0 || !page.productItem.selected.stock) && !page.productItem.selected.presale"

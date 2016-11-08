@@ -1,37 +1,53 @@
 main.product
 
+  max-width: $medium
+  margin: auto
+  position: relative
 
   .images
-    margin: auto
-    width: 50%
+    width: $medium - 300px
+    float: left
+
   .info
-    margin: auto
-    width: 50%
+    width: 300px
+    text-align: left
+    position: fixed
+    top: $header-height
+    bottom: $footer-height
+    margin-left: $medium - 300px
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    align-content: center
 
-    .options
-      &.colors
-        button
-          border: 1px solid #ccc
-          width:  30px
-          height: 30px
-          box-shadow: inset 0 0 0 2px white
-          margin-right: 10px
-          &.selected
-            border: 1px solid black
+    // .options
+    //   &.colors
+    //     button
+    //       border: 1px solid #ccc
+    //       width:  30px
+    //       height: 30px
+    //       box-shadow: inset 0 0 0 2px white
+    //       margin-right: 10px
+    //       &.selected
+    //         border: 1px solid black
 
-      &.sizes
-        button
-          border: 1px solid #ccc
-          width:  30px
-          height: 30px
-          box-shadow: inset 0 0 0 2px white
-          margin-right: 10px
-          background: white
-          &.selected
-            border: 1px solid black
-            color: white
-            background: black
+    //   &.sizes
+    //     button
+    //       border: 1px solid #ccc
+    //       width:  30px
+    //       height: 30px
+    //       box-shadow: inset 0 0 0 2px white
+    //       margin-right: 10px
+    //       background: white
+    //       &.selected
+    //         border: 1px solid black
+    //         color: white
+    //         background: black
 
+
+    .btn
+      border: 1px solid $text-color-muted
 body.desktop
   main.product
 

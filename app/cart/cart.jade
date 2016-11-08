@@ -60,14 +60,14 @@
         ) cart empty
 
 
-      button.add(
+      button.btn(
         ng-show="cart.imagoCart.cart.items.length"
         type="button"
         ng-click="cart.imagoCart.checkout()"
         analytics-on="click" analytics-event="Go to Checkout"
         )
         span.checkout checkout
-        span.currency {{cart.imagoCart.currency | currencySymbol}}
+        span.currency(ng-bind-html="cart.imagoCart.currency | currencySymbol")
         span.amount {{cart.imagoCart.subtotal | price:0}}
 
 
