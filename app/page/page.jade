@@ -1,4 +1,4 @@
-main.page
+main.page(ng-class="::[page.data.fields.textAlign.value]")
   h2 {{::page.data.fields.title.value}}
   .media
     imago-video(data="::page.data" ng-if="::page.data.fields.formats"

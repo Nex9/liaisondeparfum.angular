@@ -4,7 +4,8 @@
   analytics-on="click" analytics-event="Show Cart {{cart.imagoCart.show}}"
   style="color: {{backgroundColor}}"
   imago-click-out="cart.imagoCart.show = false"
-  ) Bag: {{cart.imagoCart.itemsLength}}
+  ng-show="cart.imagoCart.itemsLength"
+  ) {{cart.imagoCart.itemsLength}}
 
 .imago-cart(ng-if="cart.imagoCart.show")
   button.cart-close(ng-click="cart.imagoCart.show = false")

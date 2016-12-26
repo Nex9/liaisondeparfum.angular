@@ -10,65 +10,66 @@ main.product
 
 
   .info
+    .inner
 
-    h2 {{::page.data.fields.title.value}}
+      h2 {{::page.data.fields.title.value}}
 
-    p {{::page.data.fields.description.value}}
+      p {{::page.data.fields.description.value}}
 
-    //- .options.colors
-    //-   label Color {{::color.name}}
-    //-   button(
-    //-     ng-repeat="color in page.productItem.options.color track by color.normname"
-    //-     ng-class="[{selected: color.name === page.productItem.color}, {notavailable: !page.productItem.findVariant('color', color.name)},color.normname]"
-    //-     ng-click="page.productItem.setOption('color', color.name); page.showColor = false"
-    //-     title="{{::color.name}}"
-    //-     ng-style="{backgroundColor: color.color}"
-    //-     )
-
-
-    //- .options.sizes
-    //-   label Size
-
-    //-   button(
-    //-     ng-repeat="size in page.productItem.options.size track by size.normname"
-    //-     ng-class="[{selected: size.name === page.productItem.size}, {notavailable: !page.productItem.findVariant('size', size.name)}, size.normname]"
-    //-     ng-click="page.productItem.setOption('size', size.name)"
-    //-     title="{{::size.name}}"
-    //-     )
-    //-     span {{::size.name}}
+      //- .options.colors
+      //-   label Color {{::color.name}}
+      //-   button(
+      //-     ng-repeat="color in page.productItem.options.color track by color.normname"
+      //-     ng-class="[{selected: color.name === page.productItem.color}, {notavailable: !page.productItem.findVariant('color', color.name)},color.normname]"
+      //-     ng-click="page.productItem.setOption('color', color.name); page.showColor = false"
+      //-     title="{{::color.name}}"
+      //-     ng-style="{backgroundColor: color.color}"
+      //-     )
 
 
-    .error(ng-show="page.error && !page.color") Please choose a color
+      //- .options.sizes
+      //-   label Size
+
+      //-   button(
+      //-     ng-repeat="size in page.productItem.options.size track by size.normname"
+      //-     ng-class="[{selected: size.name === page.productItem.size}, {notavailable: !page.productItem.findVariant('size', size.name)}, size.normname]"
+      //-     ng-click="page.productItem.setOption('size', size.name)"
+      //-     title="{{::size.name}}"
+      //-     )
+      //-     span {{::size.name}}
 
 
-    .price(
-      ng-hide="page.productItem.selected === 0"
-      find-price
-      attributes="['color', 'size']"
-      variants="page.productItem.variants"
-      product="page.productItem")
-
-    .message
-      .low-stock(ng-show="page.productItem.selected.stock < 9 && !page.productItem.selected.lowstock && !page.productItem.selected.stock <= 0 && !page.productItem.selected.presale") only a few left
-      .low-stock(ng-show="page.productItem.selected.lowstock && page.productItem.selected.stock !== 1 && !page.productItem.selected.presale") {{page.productItem.selected.stock}} items left
-      .low-stock(ng-show="page.productItem.selected.stock === 1 && !page.productItem.selected.presale") 1 item left
-      .no-stock(ng-show="(page.productItem.selected.stock <= 0 || !page.productItem.selected.stock) && !page.productItem.selected.presale && page.productItem.selected") Sold Out
-      .not-available(ng-show="page.productItem.selected === 0") Sorry, this combination is not available
-      .presale(ng-show="page.productItem.selected.presale") Presale: item will ship once available
-
-    //- pre {{page.productItem.selected|json}}
+      .error(ng-show="page.error && !page.color") Please choose a color
 
 
-    button.btn(
-      type="button"
-      ng-click="page.imagoCart.add(page.productItem.selected, ['color', 'size'], ['title', 'description'])"
-      ng-disabled="(page.productItem.selected.stock <= 0 || !page.productItem.selected.stock) && !page.productItem.selected.presale"
-      analytics-on="click"
-      analytics-if="page.productItem.selected.stock > 0 || page.productItem.selected.presale"
-      analytics-event="AddToCart"
-      )
-      span(ng-show="page.productItem.selected.stock > 0 || page.productItem.selected.presale") add to bag
-      span(ng-hide="page.productItem.selected.stock > 0 || page.productItem.selected.presale") sold out
+      .price(
+        ng-hide="page.productItem.selected === 0"
+        find-price
+        attributes="['color', 'size']"
+        variants="page.productItem.variants"
+        product="page.productItem")
+
+      .message
+        .low-stock(ng-show="page.productItem.selected.stock < 9 && !page.productItem.selected.lowstock && !page.productItem.selected.stock <= 0 && !page.productItem.selected.presale") only a few left
+        .low-stock(ng-show="page.productItem.selected.lowstock && page.productItem.selected.stock !== 1 && !page.productItem.selected.presale") {{page.productItem.selected.stock}} items left
+        .low-stock(ng-show="page.productItem.selected.stock === 1 && !page.productItem.selected.presale") 1 item left
+        .no-stock(ng-show="(page.productItem.selected.stock <= 0 || !page.productItem.selected.stock) && !page.productItem.selected.presale && page.productItem.selected") Sold Out
+        .not-available(ng-show="page.productItem.selected === 0") Sorry, this combination is not available
+        .presale(ng-show="page.productItem.selected.presale") Presale: item will ship once available
+
+      //- pre {{page.productItem.selected|json}}
+
+
+      button.btn(
+        type="button"
+        ng-click="page.imagoCart.add(page.productItem.selected, ['color', 'size'], ['title', 'description'])"
+        ng-disabled="(page.productItem.selected.stock <= 0 || !page.productItem.selected.stock) && !page.productItem.selected.presale"
+        analytics-on="click"
+        analytics-if="page.productItem.selected.stock > 0 || page.productItem.selected.presale"
+        analytics-event="AddToCart"
+        )
+        span(ng-show="page.productItem.selected.stock > 0 || page.productItem.selected.presale") add to bag
+        span(ng-hide="page.productItem.selected.stock > 0 || page.productItem.selected.presale") sold out
 
 
 

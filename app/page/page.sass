@@ -1,8 +1,15 @@
 main.page
-  // general styles
+  min-height: calc(100vh - #{$header-height + $footer-height})
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  align-content: center
+  padding-bottom: 32px
 
   .media
     max-width: 640px
+    width: 100%
     margin: 0 auto
     .imago-image-content,
     .imago-video-content
@@ -10,11 +17,23 @@ main.page
   .text
     margin: 0 auto
     max-width: 460px
-    text-align: justify
     color: $laison-color
+    padding: 0 1em
+
+
+  &.left
+    text-align: left
+  &.center
+    text-align: center
+  &.right
+    text-align: right
+  &.justify
+    text-align: justify
 
 body.desktop main.page
   // desktop styles
 
 body.mobile main.page
   // mobile styles
+
+

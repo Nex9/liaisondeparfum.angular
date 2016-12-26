@@ -62,6 +62,33 @@ class Setup extends Config
             imagoModel.getData
               path: '/about'
 
+      .state 'inprint',
+        url: '/inprint'
+        templateUrl: '/app/page/page.html'
+        controller: 'page as page'
+        resolve:
+          promiseData: (imagoModel) ->
+            imagoModel.getData
+              path: '/inprint'
+
+      .state 'policy',
+        url: '/policy'
+        templateUrl: '/app/page/page.html'
+        controller: 'page as page'
+        resolve:
+          promiseData: (imagoModel) ->
+            imagoModel.getData
+              path: '/policy'
+
+      .state 'terms',
+        url: '/terms'
+        templateUrl: '/app/page/page.html'
+        controller: 'page as page'
+        resolve:
+          promiseData: (imagoModel) ->
+            imagoModel.getData
+              path: '/terms'
+
       .state 'contact',
         url: '/contact'
         templateUrl: '/app/contact/contact.html'
