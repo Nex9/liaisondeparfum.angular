@@ -1,10 +1,9 @@
-.imago-cart-backdrop(ng-if="cart.imagoCart.show" ng-click="cart.imagoCart.show = false")
+.imago-cart-backdrop(ng-show="cart.imagoCart.show" ng-click="cart.imagoCart.show = false")
 
 .imago-cart-bag(
   ng-class="{'message': cart.imagoCart.newmessages}"
   ng-click="cart.imagoCart.show = !cart.imagoCart.show"
   analytics-on="click" analytics-event="Show Cart {{cart.imagoCart.show}}"
-  ng-show="cart.imagoCart.itemsLength"
   ) {{cart.imagoCart.itemsLength}}
 
 
@@ -29,6 +28,9 @@
       .color(ng-show="item.fields.color.value") color: {{ item.fields.color.value }}
 
       .qty
+        button.remove(ng-click="cart.imagoCart.remove(item)" stop-event="click")
+          span
+          span
         imago-field-number(
           ng-model="item.qty"
           ng-change="cart.imagoCart.calculate(); cart.imagoCart.update()"
@@ -36,9 +38,7 @@
           max="cart.maxQty(item)"
           stop-propagation
           )
-        button.remove(ng-click="cart.imagoCart.remove(item)")
-          span
-          span
+
 
       imago-cart-messages(item="item")
 
@@ -69,13 +69,3 @@
       span.amount {{cart.imagoCart.subtotal | price:0}}
 
 
-
-
-  //- imago-cart
-  //-   .imago-cart-item(ng-repeat="item in cart.imagoCart.cart.items")
-  //-     img(ng-if="item.serving_url" ng-src="{{item.serving_url}}=s100-c")
-  //-     button.remove(ng-click="cart.imagoCart.remove(item)") x
-
-  //-     span.title {{::item.name}}
-  //-     span.qty {{item.qty}}x
-  //-     span(ng-repeat="(k,v) in item.options" ng-class="k") {{k}}: {{v.value}}
