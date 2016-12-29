@@ -10,6 +10,8 @@
 .imago-cart-content(ng-if="cart.imagoCart.show")
 
   .imago-cart-header
+
+    h2 Cart
     button.cart-close(ng-click="cart.imagoCart.show = false")
       span
       span
@@ -20,7 +22,7 @@
         style="background-image: url({{item.serving_url}}=s300)")
 
       .title {{::item.name}}
-      //- .description {{::item.fields.description.value}}\
+      //- .description {{::item.fields.description.value}}
       .price
         span.currency(ng-bind-html="cart.imagoCart.currency | currencySymbol")
         span.amount {{ item.price[cart.imagoCart.currency] | price:0 }}
@@ -45,27 +47,25 @@
   .imago-cart-messages
     .message(ng-repeat="message in cart.imagoCart.messages" ng-switch="message.type")
       p(ng-switch-when="nostock") Item {{message.item.name}} out of stock
+    .noitems(
+      ng-show="cart.imagoCart.itemsLength === 0 && !cart.imagoCart.messages.length"
+      ) cart empty
 
-  .imago-cart-items(
+  .imago-cart-summery(
     ng-show="cart.imagoCart.itemsLength"
     ) {{cart.imagoCart.itemsLength}}
     span(ng-show="cart.imagoCart.itemsLength === 1")  item
     span(ng-show="cart.imagoCart.itemsLength > 1")  items
 
-  .imago-cart-summery
-    .noitems(
-      ng-show="cart.imagoCart.itemsLength === 0 && !cart.imagoCart.messages.length"
-      ) cart empty
 
   .imago-cart-checkout
-    button.checkout(
+    button.btn-primary-inverted(
       ng-show="cart.imagoCart.cart.items.length"
       type="button"
       ng-click="cart.imagoCart.checkout()"
       analytics-on="click" analytics-event="Go to Checkout"
       )
-      span.checkout checkout
+      span.checkout checkout&nbsp;
       span.currency(ng-bind-html="cart.imagoCart.currency | currencySymbol")
       span.amount {{cart.imagoCart.subtotal | price:0}}
-
 

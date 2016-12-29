@@ -36,6 +36,16 @@ a.btn
 button:disabled
   opacity: 0.3
 
+
+.btn-small
+  @extend .btn
+  font-size: $btn-small-font-size
+
+.btn-large
+  @extend .btn
+  font-size: $btn-large-font-size
+
+
 .btn-primary
   @extend .btn
   border: 1px solid $text-color-muted
@@ -50,3 +60,18 @@ button:disabled
   border: 1px solid $text-color-muted
   font-size: $btn-large-font-size
 
+
+
+.btn-primary-inverted
+  @extend .btn
+  border: 1px solid $text-color-muted
+  color: white
+  background-color: $btn-default-text-color
+  &:enabled
+    &:hover
+      color: black
+      background-color: white
+    &:active
+      color: lighten($text-color, 50%)
+    &.active
+      color: $btn-default-text-color
