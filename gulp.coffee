@@ -57,6 +57,7 @@ paths =
     # imago
     'bower_components/imago/dist/core.js'
     'bower_components/imago/dist/events.js'
+    'bower_components/imago/dist/imago-click-out.js'
     'bower_components/imago/dist/imago-image.js'
     'bower_components/imago/dist/imago-video.js'
     'bower_components/imago/dist/imago-slider.js'
@@ -70,6 +71,8 @@ paths =
     'bower_components/imago/dist/imago-contact.js'
     'bower_components/imago/dist/imago-shop.js'
     'bower_components/imago/dist/imago-fetch.js'
+    'bower_components/imago/dist/imago-modal.js'
+    'bower_components/imago/dist/imago-fields.js'
 
     # custom
     # 'bower_components/moment/moment.js'

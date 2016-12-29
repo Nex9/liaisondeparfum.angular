@@ -1,0 +1,28 @@
+simple-addtobag
+  margin: 0 auto
+  .options
+    white-space: nowrap
+    .option
+      display: inline-block
+      font-size: .85em
+      margin-right: 2em
+      select
+        border-bottom: none
+      &.size
+        width: 150px
+      &.color
+        width: 180px
+    .price
+      display: inline-block
+      margin-bottom: .5em
+      span
+        user-select: none !important
+    &.center
+      .price
+        float: none
+
+  select
+    border: 0
+    background: none
+    appearance: none
+    padding-left: 20px

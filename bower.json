@@ -16,24 +16,24 @@
   ],
   "dependencies": {
     "lodash": "*",
-    "angular": "~1.5",
-    "angular-moment": "~1",
-    "angular-animate": "~1.5",
-    "angular-elastic": "~2",
+    "angular": "^1.6",
+    "angular-moment": "*",
+    "angular-animate": "^1.6",
+    "angular-elastic": "*",
     "angular-scroll": "*",
-    "angular-touch": "~1.5",
+    "angular-touch": "^1.6",
     "angular-ui-router": "*",
     "angulartics": "*",
     "angulartics-google-analytics": "*",
     "imago": "Imago-io/imago.angular#master",
-    "angulartics-facebook-pixel": "^0.2.0",
+    "angulartics-facebook-pixel": "*",
     "normalize.css": "~4",
     "sass-mediaqueries": "~1",
     "headroom.js": "https://npmcdn.com/headroom.js/bower.zip",
     "fastclick": "~1"
   },
   "resolutions": {
-    "angular": "~1.5",
+    "angular": "^1.6",
     "angulartics": "~1"
   }
 }

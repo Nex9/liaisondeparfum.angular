@@ -1,0 +1,26 @@
+.options
+  .option.imago-field(
+    ng-repeat="option in $ctrl.optionsWhitelist track by $index"
+    ng-if="$ctrl.productItem.options[option.name]"
+    class="{{option.name}}"
+    )
+    select(
+      ng-options="variant as variant.fields[option.name].value for variant in $ctrl.productItem.variants track by variant._id"
+      ng-model="$ctrl.selectedVariant"
+      ng-change="$ctrl.productItem.setOption(option.name, $ctrl.selectedVariant.fields[option.name].value)"
+      name="option.name"
+      )
+    label(name="size") {{::option.name}}
+
+  .price(ng-if="$ctrl.productItem.selected.price")
+    span.currency(ng-bind-html="$ctrl.imagoCart.currency | currencySymbol")
+    span.amount {{$ctrl.productItem.selected.price[$ctrl.imagoCart.currency] | price: 0}}
+
+  //- textarea {{$ctrl.productItem|json}}
+
+button.btn-primary-small(
+  ng-click="$ctrl.imagoCart.add($ctrl.productItem.selected, ['size', 'color'], ['title', 'description'])"
+  ng-show="$ctrl.productItem.selected"
+  ) Add To Bag
+
+//- pre {{$ctrl.productItem.selected.fields.color|json}}

@@ -60,7 +60,7 @@ main.product
       //- pre {{page.productItem.selected|json}}
 
 
-      button.btn(
+      button.btn-primary(
         type="button"
         ng-click="page.imagoCart.add(page.productItem.selected, ['color', 'size'], ['title', 'description'])"
         ng-disabled="(page.productItem.selected.stock <= 0 || !page.productItem.selected.stock) && !page.productItem.selected.presale"

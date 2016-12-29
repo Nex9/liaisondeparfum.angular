@@ -1,9 +1,0 @@
-.find-options
-  span.field(ng-repeat="field in ::findoptions.fields" type="{{field}}")
-    span.option(
-      ng-repeat="option in ::findoptions.options[field]"
-      style="background-color: {{ ::option.swatchColor }};"
-      ng-class="::{'invalid': !option.valid}"
-      ng-click="findoptions.selected(option.name)"
-      title="{{ ::option.name }}"
-      )

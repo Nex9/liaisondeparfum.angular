@@ -152,13 +152,19 @@ class Setup extends Config
 
 class Load extends Run
 
-  constructor: ($rootScope, $state, $location, $timeout, tenantSettings, imagoUtils) ->
+  constructor: ($rootScope, $state, $location, $timeout, tenantSettings, imagoUtils, ngProgress) ->
     document.documentElement.classList.remove('nojs')
-    $timeout ->
-      $rootScope.js = true
-      $rootScope.mobile = imagoUtils.isMobile()
-      $rootScope.mobileClass = if $rootScope.mobile then 'mobile' else 'desktop'
-      FastClick.attach(document.body)
+
+    # imago image enable blury preview
+    $rootScope.imagePlaceholder = true
+    # imago video theme
+    $rootScope.videoTheme = 'https://storage.googleapis.com/videoangular-imago-theme/videoangular-imago-theme.min.css'
+
+    $rootScope.js = true
+    $rootScope.mobile = imagoUtils.isMobile()
+    $rootScope.mobileClass = if $rootScope.mobile then 'mobile' else 'desktop'
+    FastClick.attach(document.body)
+
 
     $rootScope.toggleMenu = (status) ->
       if _.isUndefined status
@@ -166,17 +172,19 @@ class Load extends Run
       else
         $rootScope.navActive =  status
 
-    # $rootScope.$on '$stateChangeStart', (evt) ->
-    #   ngProgress.start()
+    $rootScope.$on '$stateChangeStart', (evt) ->
+      ngProgress.start()
 
 
+    # general code
     $rootScope.$on '$stateChangeSuccess', (evt) ->
       $rootScope.urlPath = $location.path()
+      $rootScope.controller =  _.last $state.current.controller.split(' ')
       state = $state.current.name.split('.').join(' ')
       path  = $rootScope.urlPath.split('/').join(' ')
       path = 'home' if path is ' '
       $rootScope.state = state
       $rootScope.path  = path
       $rootScope.toggleMenu(false)
-      # ngProgress.done()
+      ngProgress.done()
 

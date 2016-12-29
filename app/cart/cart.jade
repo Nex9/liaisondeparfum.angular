@@ -1,84 +1,81 @@
-.bag(
+.imago-cart-backdrop(ng-if="cart.imagoCart.show" ng-click="cart.imagoCart.show = false")
+
+.imago-cart-bag(
   ng-class="{'message': cart.imagoCart.newmessages}"
   ng-click="cart.imagoCart.show = !cart.imagoCart.show"
   analytics-on="click" analytics-event="Show Cart {{cart.imagoCart.show}}"
-  style="color: {{backgroundColor}}"
-  imago-click-out="cart.imagoCart.show = false"
   ng-show="cart.imagoCart.itemsLength"
   ) {{cart.imagoCart.itemsLength}}
 
-.imago-cart(ng-if="cart.imagoCart.show")
-  button.cart-close(ng-click="cart.imagoCart.show = false")
-    span
-    span
-  .imago-cart-content(stop-propagation)
-    .imago-cart-items
-      .imago-cart-item(ng-repeat="item in cart.imagoCart.cart.items track by item._id")
 
+.imago-cart-content(ng-if="cart.imagoCart.show")
 
+  .imago-cart-header
+    button.cart-close(ng-click="cart.imagoCart.show = false")
+      span
+      span
 
-        .img(ng-show="item.serving_url"
-          style="background-image: url({{item.serving_url}}=s300)")
-        .line
-          .title {{item.name}}
-        .line
-          .size(ng-show="item.fields.size.value") size: {{ item.fields.size.value }}
-          .color(ng-show="item.fields.color.value") color: {{ item.fields.color.value }}
-          .qty
-            imago-field-number(
-              ng-model="item.qty"
-              ng-change="cart.imagoCart.calculate(); cart.imagoCart.update()"
-              min="0"
-              max="cart.maxQty(item)"
-              stop-propagation
-              )
-        .line
-          .price price:
-            span.currency(ng-bind-html="cart.imagoCart.currency | currencySymbol")
-            span.amount {{ item.price[cart.imagoCart.currency] | price:0 }}
-          button.remove(ng-click="cart.imagoCart.remove(item)" stop-propagation)
-            span
-            span
+  .imago-cart-items
+    .imago-cart-item(ng-repeat="item in cart.imagoCart.cart.items track by item._id")
+      .img(ng-show="item.serving_url"
+        style="background-image: url({{item.serving_url}}=s300)")
 
-        .line
-          div(imago-cart-messages="item")
+      .title {{::item.name}}
+      //- .description {{::item.fields.description.value}}\
+      .price
+        span.currency(ng-bind-html="cart.imagoCart.currency | currencySymbol")
+        span.amount {{ item.price[cart.imagoCart.currency] | price:0 }}
+      .size(ng-show="item.fields.size.value") size: {{ item.fields.size.value }}
+      .color(ng-show="item.fields.color.value") color: {{ item.fields.color.value }}
 
-    .imago-cart-messages
-      .message(ng-repeat="message in cart.imagoCart.messages" ng-switch="message.type")
-        p(ng-switch-when="nostock") Item {{message.item.name}} is not in stock anymore
-        p Item kitchi out of stock
+      .qty
+        imago-field-number(
+          ng-model="item.qty"
+          ng-change="cart.imagoCart.calculate(); cart.imagoCart.update()"
+          min="0"
+          max="cart.maxQty(item)"
+          stop-propagation
+          )
+        button.remove(ng-click="cart.imagoCart.remove(item)")
+          span
+          span
+
+      imago-cart-messages(item="item")
+
+  .imago-cart-messages
+    .message(ng-repeat="message in cart.imagoCart.messages" ng-switch="message.type")
+      p(ng-switch-when="nostock") Item {{message.item.name}} out of stock
+
+  .imago-cart-items(
+    ng-show="cart.imagoCart.itemsLength"
+    ) {{cart.imagoCart.itemsLength}}
+    span(ng-show="cart.imagoCart.itemsLength === 1")  item
+    span(ng-show="cart.imagoCart.itemsLength > 1")  items
+
+  .imago-cart-summery
+    .noitems(
+      ng-show="cart.imagoCart.itemsLength === 0 && !cart.imagoCart.messages.length"
+      ) cart empty
 
   .imago-cart-checkout
-    //- .itemnumber(
-    //-   ng-show="cart.imagoCart.itemsLength"
-    //-   ) {{cart.imagoCart.itemsLength}}
-    //-   span(ng-show="cart.imagoCart.itemsLength === 1")  item
-    //-   span(ng-show="cart.imagoCart.itemsLength > 1")  items
-
-    .imago-cart-summery
-      .noitems(
-        ng-show="cart.imagoCart.itemsLength === 0 && !cart.imagoCart.messages.length"
-        ) cart empty
-
-
-      button.btn(
-        ng-show="cart.imagoCart.cart.items.length"
-        type="button"
-        ng-click="cart.imagoCart.checkout()"
-        analytics-on="click" analytics-event="Go to Checkout"
-        )
-        span.checkout checkout
-        span.currency(ng-bind-html="cart.imagoCart.currency | currencySymbol")
-        span.amount {{cart.imagoCart.subtotal | price:0}}
+    button.checkout(
+      ng-show="cart.imagoCart.cart.items.length"
+      type="button"
+      ng-click="cart.imagoCart.checkout()"
+      analytics-on="click" analytics-event="Go to Checkout"
+      )
+      span.checkout checkout
+      span.currency(ng-bind-html="cart.imagoCart.currency | currencySymbol")
+      span.amount {{cart.imagoCart.subtotal | price:0}}
 
 
 
 
-//- imago-cart
-//-   .imago-cart-item(ng-repeat="item in cart.imagoCart.cart.items")
-//-     img(ng-if="item.serving_url" ng-src="{{item.serving_url}}=s100-c")
-//-     button.remove(ng-click="cart.imagoCart.remove(item)") x
+  //- imago-cart
+  //-   .imago-cart-item(ng-repeat="item in cart.imagoCart.cart.items")
+  //-     img(ng-if="item.serving_url" ng-src="{{item.serving_url}}=s100-c")
+  //-     button.remove(ng-click="cart.imagoCart.remove(item)") x
 
-//-     span.title {{::item.name}}
-//-     span.qty {{item.qty}}x
-//-     span(ng-repeat="(k,v) in item.options" ng-class="k") {{k}}: {{v.value}}
+  //-     span.title {{::item.name}}
+  //-     span.qty {{item.qty}}x
+  //-     span(ng-repeat="(k,v) in item.options" ng-class="k") {{k}}: {{v.value}}

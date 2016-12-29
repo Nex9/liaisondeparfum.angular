@@ -7,17 +7,13 @@ main.shop
       a(ng-href="{{ ::item.path }}")
 
     .caption
-      .options(
-        find-options
-        variants="item.variants"
-        selected-option="page.selectedColor(item, option)"
-        options="['color']"
-        )
+      //- .options(
+      //-   find-options
+      //-   variants="item.variants"
+      //-   selected-option="page.selectedColor(item, option)"
+      //-   options="['color']"
+      //-   )
       h2
         a.title(ng-href="{{::item.path}}") {{:: item.fields.title.value}}
 
-      .price(
-        find-price
-        attributes="['color']"
-        variants="item.variants"
-        product="item")
+      simple-addtobag(product="item" test="test")
