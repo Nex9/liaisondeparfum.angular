@@ -1,5 +1,5 @@
 setdefault = false
-apikey     = 'VZekCsNDpN2K5EjtP1ewqFPoG'
+apikey     = ''
 
 dest = 'public'
 src  = 'app'

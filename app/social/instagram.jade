@@ -5,4 +5,4 @@ ul
     )
     a(ng-href="{{ post.link }}" target="_blank")
       .caption(ng-if="post.caption.text")
-        .content(ng-bind-html="post.caption.text | linkify: 'instagram'")
+        .content(ng-bind-html="post.caption.text | imagoLinkify: 'instagram'")
